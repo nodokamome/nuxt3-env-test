@@ -1,10 +1,9 @@
 <script setup lang="ts">
-const config = useRuntimeConfig()
-console.log(config.public.apiBase)
+const env = getEnv()
 </script>
 
 <template>
   <div>
-    <p>{{ config.public.apiBase }}</p>
+    <p>{{ env }}</p>
   </div>
 </template>
