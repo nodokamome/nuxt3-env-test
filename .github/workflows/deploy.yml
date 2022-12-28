@@ -9,18 +9,18 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Create dot env file
-        shell: bash
-        run: |
-          touch .env
-          echo "NUXT_PUBLIC_TEST=${{ secrets.NUXT_PUBLIC_TEST }}" >> .env
-      - run: ls -la
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set Node.js 18.x
         uses: actions/setup-node@v1
         with:
           node-version: 18.x
+      - name: Create dot env file
+        shell: bash
+        run: |
+          touch .env
+          echo "NUXT_PUBLIC_TEST=${{ secrets.NUXT_PUBLIC_TEST }}" >> .env
+      - run: ls -la
       - name: yarn
         run: yarn
       - name: Build
